@@ -20,10 +20,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE, so that job can access it
-      - name: setup tree
+      - name: setup-tree
         run: mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS,tmp}
+        
+      - name: copy-source-file
+        run: cp nodejs-webserver-1-1.4.2.tgz rpmbuild/SOURCES/
             
-      - name: List files
+      - name: list-files
         run: |
           pwd
           ls -al .
