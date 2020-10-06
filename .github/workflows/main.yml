@@ -41,11 +41,13 @@ jobs:
           cp nodejs-webserver.spec `pwd`/rpmbuild/SPECS/
 
       - name: List files
-        run: find `pwd` -name "nodejs-webserver-1-1.4.2.tgz"
+        run: find ~ -name ".rpmmacros"
 
       # Runs a set of commands using the runners shell
       - name: Build package based on SPEC file
         run: |
           rpmbuild --version
+          echo "%_topdir `pwd`/rpmbuild" >> ~/.rpmmacros
+          cat ~/.rpmmacros
           ##cd /home/runner/work/RPM-build-package/RPM-build-package
           #rpmbuild -ba `pwd`/rpmbuild/SPECS/nodejs-webserver.spec
