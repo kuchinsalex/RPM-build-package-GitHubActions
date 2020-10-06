@@ -47,7 +47,6 @@ jobs:
       - name: Build package based on SPEC file
         run: |
           rpmbuild --version
-          echo "%_topdir `pwd`/rpmbuild" >> ~/.rpmmacros
-          cat ~/.rpmmacros
+
           ##cd /home/runner/work/RPM-build-package/RPM-build-package
-          #rpmbuild -ba `pwd`/rpmbuild/SPECS/nodejs-webserver.spec
+          #rpmbuild -ba --macros=`pwd`/.rpmmacros `pwd`/rpmbuild/SPECS/nodejs-webserver.spec
