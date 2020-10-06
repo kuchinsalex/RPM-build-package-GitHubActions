@@ -21,7 +21,7 @@ jobs:
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE, so that job can access it
       - name: setup tree
-        run: mkdir -p ~/runner/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS,tmp}
+        run: mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS,tmp}
             
       - name: List files
         run: |
