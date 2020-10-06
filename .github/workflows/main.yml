@@ -50,5 +50,5 @@ jobs:
       - name: Build package based on SPEC file
         run: |
           rpmbuild --version
-          #cd /home/runner/work/RPM-build-package/RPM-build-package
+          ##cd /home/runner/work/RPM-build-package/RPM-build-package
           rpmbuild -ba ~/rpmbuild/SPECS/nodejs-webserver.spec
