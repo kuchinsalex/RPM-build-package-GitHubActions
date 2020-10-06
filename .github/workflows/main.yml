@@ -52,4 +52,4 @@ jobs:
         run: |
           rpmbuild --version
           ##cd /home/runner/work/RPM-build-package/RPM-build-package
-          #rpmbuild -ba /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
+          rpmbuild -ba `pwd`/rpmbuild/SPECS/nodejs-webserver.spec
