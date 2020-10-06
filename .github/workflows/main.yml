@@ -37,8 +37,8 @@ jobs:
         
       - name: copy-source-file
         run: |
-          cp nodejs-webserver-1-1.4.2.tgz /home/runner/rpmbuild/SOURCES/
-          cp nodejs-webserver.spec /home/runner/rpmbuild/SPECS/
+          cp nodejs-webserver-1-1.4.2.tgz `pwd`/rpmbuild/SOURCES/
+          cp nodejs-webserver.spec `pwd`/rpmbuild/SPECS/
 
       - name: List files
         run: |
