@@ -35,7 +35,7 @@ jobs:
         run: mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS,tmp}
         
       - name: copy-source-file
-        run: cp nodejs-webserver-1-1.4.2.tgz rpmbuild/SOURCES/
+        run: cp nodejs-webserver-1-1.4.2.tgz ~/rpmbuild/SOURCES/
 
       - name: List files
         run: |
