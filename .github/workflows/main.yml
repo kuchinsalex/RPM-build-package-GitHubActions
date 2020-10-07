@@ -13,35 +13,22 @@ on:
 jobs:
            
   build-package:
-    
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out the repository under $GITHUB_WORKSPACE, so that job can access it
-      - name: list-files
-        run: |
-          pwd
-          ls -al .
-          echo "========= listing of /home/runner/"
-          ls -al /home/runner/
       
       # Clone the repository
       - name: Check-out the repository
         uses: actions/checkout@v2
 
       - name: setup-tree
-        run: mkdir -p /home/runner/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS,tmp}
-        #run: mkdir -p `pwd`/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS,tmp}
+        run: mkdir -p /home/runner/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
         
       - name: copy-source-file
         run: |
           cp nodejs-webserver-1-1.4.2.tgz /home/runner/rpmbuild/SOURCES/
           cp nodejs-webserver.spec /home/runner/rpmbuild/SPECS/
-
-      - name: List files
-        run: find ~ -name "nodejs-webserver-1-1.4.2.tgz"
 
       # Runs a set of commands using the runners shell
       - name: Build package based on SPEC file
@@ -50,3 +37,9 @@ jobs:
 
           ##cd /home/runner/work/RPM-build-package/RPM-build-package
           rpmbuild -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
+       
+      - name: upload-package
+        uses: actions/upload-artifact@v2
+        with:
+          name: packaged-file
+          path: /home/runner/rpmbuild/RPMS/x86_64/nodejs-webserver-1-1.4.2-1.x86_64.rpm
