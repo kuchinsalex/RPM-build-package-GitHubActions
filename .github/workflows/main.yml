@@ -41,7 +41,7 @@ jobs:
           cp nodejs-webserver.spec `pwd`/rpmbuild/SPECS/
 
       - name: List files
-        run: find ~ -name ".rpmmacros"
+        run: find ~ -name "nodejs-webserver-1-1.4.2.tgz"
 
       # Runs a set of commands using the runners shell
       - name: Build package based on SPEC file
