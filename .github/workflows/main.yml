@@ -33,9 +33,7 @@ jobs:
           cp nodejs-webserver.spec /home/runner/rpmbuild/SPECS/
 
       - name: build-package
-        run : |
-          ls -l /etc/rpm/*
-          rpmbuild -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
+        run : rpmbuild -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
 
       # Upload artifact
       - name: upload-package
