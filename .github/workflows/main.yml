@@ -34,7 +34,7 @@ jobs:
 
       - name: build-package
         run : |
-          find ~/* -name "*nodejs-webserver*"
+          find ~ -name "*nodejs-webserver*"
           rpmbuild -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
 
       # Upload artifact
