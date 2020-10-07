@@ -35,7 +35,7 @@ jobs:
       - name: build-package
         run : |
           sudo find ~ -name ".rpmmacros"
-          rpmbuild --macros=`pwd`/.rpmmacros -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
+          rpmbuild --sign -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
 
       # Upload artifact
       - name: upload-package
