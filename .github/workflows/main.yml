@@ -37,7 +37,7 @@ jobs:
       - name: build-package
         run : rpmbuild -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
 
-      # Upload artifact
+      # Upload artifact 
       - name: upload-package
         uses: actions/upload-artifact@v2
         with:
