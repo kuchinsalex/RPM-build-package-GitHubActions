@@ -49,4 +49,4 @@ jobs:
           rpmbuild --version
 
           ##cd /home/runner/work/RPM-build-package/RPM-build-package
-          rpmbuild -ba --macros=`pwd`/.rpmmacros `pwd`/rpmbuild/SPECS/nodejs-webserver.spec
+          rpmbuild -ba  `pwd`/rpmbuild/SPECS/nodejs-webserver.spec
