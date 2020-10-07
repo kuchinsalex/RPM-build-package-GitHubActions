@@ -34,7 +34,7 @@ jobs:
 
       - name: build-package
         run : |
-          sudo find / -name ".rpmrc"
+          sudo find / -name ".rpmmacros"
           rpmbuild -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
 
       # Upload artifact
