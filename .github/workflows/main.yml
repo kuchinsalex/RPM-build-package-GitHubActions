@@ -24,24 +24,19 @@ jobs:
         
       # Setup directory tree for building
       - name: setup-tree
-        run: |
-          mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-          ls -al
+        run: mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
       
       # Copy source file and SPECfile
       - name: copy-files
         run: |
           mv nodejs-webserver-1-1.4.2.tgz rpmbuild/SOURCES/
           mv nodejs-webserver.spec rpmbuild/SPECS/
-          ls -al
 
       - name: build-package
         run : rpmbuild -ba rpmbuild/SPECS/nodejs-webserver.spec
         
       - name: sign-package
-        run: |
-          find ~ -name "nodejs-webserver-1-1.4.2-1.el7.x86_64.rpm"
-          echo "${{ secrets.SIGN_RPM_PSWD }}" | setsid rpm --addsign /home/alexk_devops/rpmbuild/RPMS/x86_64/nodejs-webserver-1-1.4.2-1.el7.x86_64.rpm
+        run: echo "${{ secrets.SIGN_RPM_PSWD }}" | setsid rpm --addsign /home/alexk_devops/rpmbuild/RPMS/x86_64/nodejs-webserver-1-1.4.2-1.el7.x86_64.rpm
         
       # Upload artifact
       #- name: upload-package
