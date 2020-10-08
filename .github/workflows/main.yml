@@ -39,7 +39,7 @@ jobs:
 
 
       - name: build-package
-        run : rpmbuild -ba  rpmbuild/SPECS/nodejs-webserver.spec
+        run : rpmbuild -ba --sign rpmbuild/SPECS/nodejs-webserver.spec
 
       # Upload artifact
       #- name: upload-package
