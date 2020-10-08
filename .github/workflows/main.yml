@@ -29,10 +29,14 @@ jobs:
           ls -al
       
       # Copy source file and SPEC file
-      #- name: copy-files
-      #  run: |
+      - name: copy-files
+        run: |
+          mv nodejs-webserver-1-1.4.2.tgz rpmbuild/SOURCES/
+          mv nodejs-webserver.spec rpmbuild/SPECS/
+          ls -al
       #    cp nodejs-webserver-1-1.4.2.tgz /home/runner/rpmbuild/SOURCES/
       #    cp nodejs-webserver.spec /home/runner/rpmbuild/SPECS/
+
 
       #- name: build-package
       #  run : rpmbuild -ba  /home/runner/rpmbuild/SPECS/nodejs-webserver.spec
