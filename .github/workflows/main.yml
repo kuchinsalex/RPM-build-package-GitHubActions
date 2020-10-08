@@ -34,12 +34,12 @@ jobs:
           mv nodejs-webserver-1-1.4.2.tgz rpmbuild/SOURCES/
           mv nodejs-webserver.spec rpmbuild/SPECS/
           ls -al
-      #    cp nodejs-webserver-1-1.4.2.tgz /home/runner/rpmbuild/SOURCES/
-      #    cp nodejs-webserver.spec /home/runner/rpmbuild/SPECS/
-
 
       - name: build-package
-        run : rpmbuild -ba --sign rpmbuild/SPECS/nodejs-webserver.spec
+        run : rpmbuild -ba rpmbuild/SPECS/nodejs-webserver.spec
+        
+      - name: sign-package
+        run : echo "${{ secrets.SIGN_RPM_PSWD }}" | setsid rpm --addsign rpmbuild/RPMS/x86_64/nodejs-webserver-1-1.4.2-1.el7.x86_64.rpm        
 
       # Upload artifact
       #- name: upload-package
