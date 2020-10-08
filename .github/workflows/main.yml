@@ -28,7 +28,7 @@ jobs:
           mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
           ls -al
       
-      # Copy source file and SPEC file
+      # Copy source file and SPECfile
       - name: copy-files
         run: |
           mv nodejs-webserver-1-1.4.2.tgz rpmbuild/SOURCES/
