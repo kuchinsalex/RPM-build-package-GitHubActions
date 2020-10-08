@@ -39,8 +39,8 @@ jobs:
         run: echo "${{ secrets.SIGN_RPM_PSWD }}" | setsid rpm --addsign /home/alexk_devops/rpmbuild/RPMS/x86_64/nodejs-webserver-1-1.4.2-1.el7.x86_64.rpm
         
       # Upload artifact
-      #- name: upload-package
-      #  uses: actions/upload-artifact@v2
-      #  with:
-      #    name: packaged-file
-      #    path: /home/runner/rpmbuild/RPMS/x86_64/nodejs-webserver-1-1.4.2-1.x86_64.rpm
+      - name: upload-package
+        uses: actions/upload-artifact@v2
+        with:
+          name: packaged-file
+          path: /home/alexk_devops/rpmbuild/RPMS/x86_64/nodejs-webserver-1-1.4.2-1.el7.x86_64.rpm
