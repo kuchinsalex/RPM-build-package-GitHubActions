@@ -1,6 +1,6 @@
 %packager AlexK
 
-%_topdir %/home/runner/rpmbuild
+%_topdir %(echo $HOME)/rpmbuild
 
 %_smp_mflags %( \
     [ -z "$RPM_BUILD_NCPUS" ] \\\
